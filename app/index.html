@@ -11,9 +11,23 @@
     <li><a href="#/view2">view2</a></li>
   </ul>
 
-  <div ng-view></div>
+<div  ng-controller="PhoneListCtrl">
+ 
+  <ul>
+    <li ng-repeat="phone in phones">
+      {{phone.name}}
+      <p>{{phone.snippet}}</p>
+    </li>
+  </ul>
+  <div>Number of phone: {{ phones.length }} </div>
+</div>
 
+
+  <div ng-view></div>
   <div>Angular seed app: v<span app-version></span></div>
+
+
+
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
