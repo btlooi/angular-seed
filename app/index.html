@@ -30,14 +30,19 @@
     <div class="row-fluid">
       <div class="span2">
         <!--Sidebar content-->
-   
         Search: <input ng-model="query">
+        Sort by:
+        <select ng-model="orderProp">
+          <option value="name">Alphabetical</option>
+          <option value="age">Newest</option>
+        </select>
       </div>
+
       <div class="span10">
         <!--Body content-->
    
         <ul class="phones">
-          <li ng-repeat="phone in phones | filter:query">
+          <li ng-repeat="phone in phones | filter:query | orderBy:orderProp">
             {{phone.name}}
             <p>{{phone.snippet}}</p>
           </li>
@@ -52,8 +57,8 @@
 <div id="status">Current filter: {{query}}</div>
 
 
-  <div ng-view></div>
-  <div>Angular seed app: v<span app-version></span></div>
+<div ng-view></div>
+<div>Angular seed app: v<span app-version></span></div>
 
 
 

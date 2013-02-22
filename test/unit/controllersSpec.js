@@ -35,33 +35,23 @@ describe('MyApp controllers', function() {
  
   describe('PhoneListCtrl', function(){
  
-    it('should create "phones" model with 3 phones', function() {
-      var scope = {},
-          ctrl = new PhoneListCtrl(scope);
- 
-      expect(scope.phones.length).toBe(3);
-    });
-  });
-});
-
-
-describe('MyApp App', function() {
- 
-  describe('Phone list view', function() {
+    var scope, ctrl;
  
     beforeEach(function() {
-      browser().navigateTo('../../app/index.html');
+      scope = {},
+      ctrl = new PhoneListCtrl(scope);
     });
  
- 
-    it('should filter the phone list as user types into the search box', function() {
-      expect(repeater('.phones li').count()).toBe(3);
- 
-      input('query').enter('nexus');
-      expect(repeater('.phones li').count()).toBe(1);
- 
-      input('query').enter('motorola');
-      expect(repeater('.phones li').count()).toBe(2);
+
+    it('should create "phones" model with 3 phones', function() {
+      expect(scope.phones.length).toBe(3);
     });
+
+    it('should set the default value of orderProp model', function() {
+      expect(scope.orderProp).toBe('age');
+    });
+ 
   });
+
 });
+
